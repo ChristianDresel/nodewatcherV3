@@ -1,9 +1,9 @@
 #config
-hood="knoblauchsland"
+hood="HoodX"
 latitude="49"
 longitude="11"
-swport="e8:de:27:cf:22:9e"
-
+swport="e8:de:27:xx:yy:zz"
+contact="e@mail.de
 
 SCRIPT_VERSION="48"
 
@@ -78,7 +78,7 @@ mac11="$(ip addr show dev br0 | grep ether | cut -d " " -f 6)"
     if [ -n "$position_comment" ]; then
         position_comment="<position_comment><![CDATA[$position_comment]]></position_comment>"
     fi
-    contact="$(uci -q get fff.system.contact)"
+#    contact="$(uci -q get fff.system.contact)"
     if [ -n "$contact" ]; then
         contact="<contact>$contact</contact>"
     fi
