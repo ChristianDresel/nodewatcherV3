@@ -2,8 +2,11 @@
 hood="HoodX"
 latitude="49"
 longitude="11"
-swport="e8:de:27:xx:yy:zz"
 contact="e@mail.de
+out_iface="INTERFACENAME"
+out_nexthop="NACHMABRMAC"
+out_originator="NACHMABRMAC"
+
 
 SCRIPT_VERSION="48"
 
@@ -289,7 +292,8 @@ mac11="$(ip addr show dev br0 | grep ether | cut -d " " -f 6)"
     DATA=$DATA"<system_data>$SYSTEM_DATA</system_data>"
     DATA=$DATA"<interface_data>$interface_data</interface_data>"
     DATA=$DATA"<batman_adv_interfaces>$BATMAN_ADV_INTERFACES</batman_adv_interfaces>"
-    DATA=$DATA"<batman_adv_originators>$batman_adv_originators</batman_adv_originators>"
+    #DATA=$DATA"<batman_adv_originators>$batman_adv_originators</batman_adv_originators>"
+        DATA=$DATA"<batman_adv_originators><originator_0><originator>"$out_originator"</originator><link_quality>255</link_quality><nexthop>"$out_nexthop"</nexthop><last_seen>0</last_seen><outgoing_interface>"$out_iface"</outgoing_interface></originator_0></batman_adv_originators>"
     DATA=$DATA"<batman_adv_gateway_mode>$batman_adv_gateway_mode</batman_adv_gateway_mode>"
     DATA=$DATA"<batman_adv_gateway_list>$batman_adv_gateway_list</batman_adv_gateway_list>"
     DATA=$DATA"<switchport>$swport</switchport>"
