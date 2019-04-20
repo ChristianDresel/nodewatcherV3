@@ -98,7 +98,7 @@ mac11="$(ip addr show dev br0 | grep ether | cut -d " " -f 6)"
         /system type/ { printf "<chipset>"$2"</chipset>" }
         /platform/ { printf "<chipset>"$2"</chipset>" }
     ' /proc/cpuinfo)
-    model="<model>Unifi AC Mesh</model>"
+    model="<model>"$(cat /etc/board.info | grep board.name | cut -d "=" -f 2)"</model>"
     local_time="$(date +%s)"
     load=$(awk '{ printf "<loadavg>"$3"</loadavg><processes>"$4"</processes>" }' /proc/loadavg)
 
